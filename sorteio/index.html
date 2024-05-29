@@ -1,0 +1,396 @@
+
+
+
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="color-scheme" content="light only">
+    <meta name="X-DarkMode-Default" value="false"/>  
+    <meta name="facebook-domain-verification" content=""/>  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/rifapress.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/menu2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="main.js"></script>
+
+    <title>OpenRifas</title>        
+
+</head>
+
+<body>
+
+    <div id="loadingSystem" class="d-none"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top px-0 py-3" style="background-color:#000;">
+        <div class="container header-menu" style="justify-content: space-evenly; align-items: center;">
+            <div class="col-md-6 col-12 d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="" href="index.html" style="color: #ffffff!important; font-family: 'Roboto Condensed', sans-serif;"></a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <a href="https://chat.whatsapp.com" class="botao-flutuante botao-flutuante-whats" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="https://instagram.com" class="botao-flutuante botao-flutuante-insta" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+   
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 rifa-content light">
+                <input type="hidden" id="raffleType" value="automatico">
+                <input type="hidden" id="modoDeJogo" value="numeros">
+                
+                <div id="cardContainer" class="row">
+                    <!-- Cards will be added here -->
+                </div>
+
+
+                <div id="cardDescription" class="row">
+                    <!-- Cards Description will be added here -->
+                </div>
+
+                <div class="mt-2 d-flex text-center justify-content-center">
+                    <div class="text-center">
+                        <center>
+                            <!-- Facebook -->
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://starpremiacoes.com.br/sorteio/carro-ou-150-mil-na-conta" target="_blank"
+                            rel="noreferrer noopener" role="button"><i class="fab fa-facebook botao-social"></i></a>
+                            <!-- Telegram -->
+                            <a href="https://telegram.me/share/url?url=https://starpremiacoes.com.br/sorteio/carro-ou-150-mil-na-conta"
+                            target="_blank" rel="noreferrer noopener" role="button"><i class="fab fa-telegram botao-social"></i></a>
+                            <!-- Whatsapp -->
+                            <a href="https://api.whatsapp.com/send?text=https://starpremiacoes.com.br/sorteio/carro-ou-150-mil-na-conta" target="_blank"
+                            rel="noreferrer noopener" role="button"><i class="fab fa-whatsapp botao-social"></i></a>
+                            <!-- Twitter -->
+                            <a href="https://twitter.com/intent/tweet?text=Vc%20pode%20ser%20o%20Próximo%20Ganhador%20https://starpremiacoes.com.br/sorteio/carro-ou-150-mil-na-conta"
+                            target="_blank" rel="noreferrer noopener" role="button"><i class="fab fa-twitter botao-social"></i></a>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h5 class="mt-1 title-promo light">
+            📣 Promoção
+            <small class="text-muted title-promo light" style="font-size: 15px;">Compre mais barato!</small>
+        </h5>
+    </div>
+
+    <div class="container card" style="border: none; border-radius: 10px; background-color: transparent;" id="promocoes">
+        <!-- Cards will be added here -->
+    </div>
+
+    <div class="container">
+        <h5 class="mt-1 title-promo light">
+            ⚡ Cotas
+            <small class="text-muted title-promo light" style="font-size: 15px;">Compre mais barato!</small>
+        </h5>
+    </div>
+
+
+    <div class="container card" style="border: none; border-radius: 10px; background-color: transparent;">
+        <div class="card-body body-promo light">
+            <div class="row">
+                <div class="col-md-6 col-6">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-secondary btn-sm bg-secondary" style="font-size: 12px; width: 100%; background: #198754 !important">
+                        <i class="fas fa-shopping-cart"></i>&nbsp;Ver meus números
+                    </button>
+                </div>
+                <div class="col-md-6 col-6">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#modal-premios" class="btn btn-secondary btn-sm bg-secondary" style="width: 100%; font-size: 12px;">
+                        <i class="fas fa-trophy"></i>&nbsp;Prêmios
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container card" style="border: none; border-radius: 10px; background-color: transparent;">
+        <div class="card" style="border: none; border-radius: 10px; background-color: transparent; margin-bottom: 50px!important;">
+            <div class="card-body body-compra-auto light">
+                <div class="">
+                </div>
+                <div class="title-compra-auto light" style="margin-bottom: 10px;">
+                    <h5 style="font-weight: bold;">COMPRA AUTOMÁTICA</h5>
+                    <span>O site escolhe números aleatórios para você.</span><br>
+                </div>
+    
+                <div class="row d-flex justify-content-center align-items-center">
+                    <div class="col-6 text-center">
+                        <div class="btn-auto btn-add-qtd light" onclick="addQtd('10')" style="padding: 10px; margin-bottom: 10px;">
+                            <span style="font-weight: 900">+  10</span><br>
+                            <span style="font-size: 14px;font-weight: bold;">ADICIONAR</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="btn-auto btn-add-qtd light" onclick="addQtd('25')" style="margin-bottom: 10px;">
+                            <span style="font-weight: 900">+  25</span><br>
+                            <span style="font-size: 14px;font-weight: bold;">ADICIONAR</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="btn-auto btn-add-qtd light" onclick="addQtd('50')" style="margin-bottom: 10px;">
+                            <span style="font-weight: 900">+  50</span><br>
+                            <span style="font-size: 14px;font-weight: bold;">ADICIONAR</span>
+                        </div>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="btn-auto btn-add-qtd light" onclick="addQtd('100')" style="margin-bottom: 10px;">
+                            <span style="font-weight: 900">+  100</span><br>
+                            <span style="font-size: 14px;font-weight: bold;">ADICIONAR</span>
+                            <span class="badge bg-success text-popular">MAIS POPULAR</span>
+                        </div>
+                    </div>
+                </div>
+                
+    
+                <div class="" style="margin-top: 20px;margin-bottom: 20px;text-align: center;">
+                    <div class="amount">
+                        <div class="form-group" style="margin-bottom: 0;display: flex;justify-content: center;flex-direction: inherit;align-items: center;">
+                            <button class="btn-amount-qtd" onclick="addQtd('-')" style="color: #000;margin-right: 5px;">-</button>
+                            <input type="number" style="text-align: center;background-color: #E5E5E5;color: #000000;font-weight: bold;" id="numbersA" value="1" min="1" max="10000" class="form-control" placeholder="Quantidade de cotas">
+                            <button class="btn-amount-qtd" onclick="addQtd('+')" style="color: #000;margin-left: 5px;">+</button>
+                        </div>
+                        <button type="button" class="btn btn-danger reservation btn-amount blob bg-success" style="color: #fff;border: none;width: 100%;margin-top: 5px;font-weight: bold;" onclick="validarQtd()"><i class="far fa-check-circle"></i>&nbsp;Participar do sorteio<span id="numberSelectedTotalHome" style="color: #fff;float:right"></span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Modal FINALIZAR RESERVA (CHECKOUT) -->
+    <div class="modal fade" id="staticBackdrop" data-backdrop="MODA" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="z-index: 999999;">
+        <div class="modal-dialog modal-lg">
+            
+            <form id="form-checkout" method="POST" onsubmit="finish(event)">
+                    
+                <input type="hidden" name="_token" value="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+                
+                <div class="modal-content" style="border: none;">
+                    <div class="modal-header" style="background-color: #939393;color: #fff;">
+                        <h5 class="modal-title" id="staticBackdropLabel">FINALIZAR RESERVA</h5>
+                        <button type="button" class="close fechar-modal" data-dismiss="modal" aria-label="Close" style="color: red;" onclick="dismissModal()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="background: #efefef;color: #939393;">
+
+                        <small class="form-text d-none" style="color: green;"><b>Valor a pagar: <small style="font-size: 15px;" id="numberSelectedTotalModal"></small></b></small>
+
+                        <div class="form-group">
+                            <div class="row" id="hiddenData">
+                                <div class="col-md-12 d-none">
+                                    <div class="numberSelected" id="numberSelectedModal" style="overflow-y: auto;width: 190px;"></div>
+                                </div>
+                            </div>                  
+                        </div>
+
+                        <div class="form-group" style="background-color: #cff4fc;padding: 10px;border-radius: 10px;color: #055160;">
+                            <span>Você está adquirindo <strong id="qtd-checkout">33</strong> cota(s) da ação entre amigos <strong id="rifa-checkout">20 MIL NA CONTA</strong> , seu(s) número(s) sera(ão) gerado(s) assim que concluir a compra.</span>
+                        </div>
+
+                        <div class="form-group d-flex d-none" id="div-customer">
+                            <div>
+                                <img src="../images/default-user.jpg" style="width: 70px; height: 70px;border-radius: 10px;">
+                            </div>
+
+                            <div class="ml-2" style="color: #000">
+                                <h4 id="customer-name"></h4>
+                                <h5 id="customer-phone"></h5>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="div-telefone">
+                            <label style="color: #000"><strong>Celular com DDD</strong></label>
+                            <input type="text" class="form-control numbermask keydown" style="background-color: #fff;border: none;color: #333;" name="telephone" id="telephone1" placeholder="Celular com DDD" maxlength="15" required>
+                            <input type="hidden" name="telephone" id="phone-cliente">
+                            <input type="hidden" id="customer" name="customer">
+                        </div>
+
+                        <div class="form-group d-none" id="div-nome">
+                            <label style="color: #000"><strong>Nome Completo</strong></label>
+                            <input type="text" class="form-control" style="background-color: #fff;border: none;color: #333;" name="name" id="name" required>
+                        </div>
+
+                        <div  class="form-group d-none" id="div-cpf">
+                            <label style="color: #000"><strong>CPF</strong></label>
+                            <input type="text" class="form-control" style="background-color: #fff;border: none;color: #333;" name="cpf" id="cpf" required>
+                        </div>
+
+
+                        <div class="form-group" id="div-info" style="background-color: #fff3cd;margin-top: 10px; margin-bottom: 10px; padding: 10px;border-radius: 10px;color: #664d03;">
+                            <span><i class="fas fa-info-circle"></i>&nbsp;<span id="info-footer">Informe seu telefone para continuar.</span></span>
+                        </div>
+
+                        <button class="btn btn-block btn-primary" id="btn-checkout-action" onclick="checkCustomer()" type="button"><strong id="btn-checkout">Continuar</strong></button>
+
+                        <center>
+                            <button class="btn btn-sm btn-outline-secondary mt-2 d-none" id="btn-alterar" onclick="clearModal()">Alterar Telefone</button>
+                        </center>
+                        <input type="hidden" id="promo" name="promo">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('telephone1').addEventListener('input', function (e) {
+                var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+                e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+            });
+        </script>    
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border: none;">
+            <div class="modal-header" style="background-color: #020f1e;">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">CONSULTAR RESERVAS</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+                    style="color: #fff;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #020f1e;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form onsubmit="search(event)" style="display: flex;">
+                            <input type="hidden" name="_token" value="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+                            <input type="text" id="telephone3" name="telephone"
+                                style="background-color: #fff;border: none;color: #000;margin-right:5px;"
+                                aria-describedby="passwordHelpBlock" maxlength="15" placeholder="Celular com DDD"
+                                class="form-control" required>
+                            <button type="submit" class="btn btn-danger">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border: none;">
+                <div class="modal-header" style="background-color: #020f1e;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">DÚVIDAS FREQUENTES</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        style="color: #fff;background-color: red!important;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color: #020f1e;color: #ffffff;">
+                    <b style="text-transform: uppercase;">- É confiável?</b><br>
+                    <span style="color: #999999;">R: Sim, sorteio pela milhar da loteria federal.</span><br>
+                    <b style="text-transform: uppercase;">- Que dia é o sorteio?</b><br>
+                    <span style="color: #999999;">R: Após a venda de todas as cotas, no site você pode acompanhar as
+                        vendas!</span><br>
+                    <b style="text-transform: uppercase;">- Como participar da nossa rifa?</b><br>
+                    <span style="color: #999999;">R: Existe duas formas compra automática e compra manual.</span><br>
+                    <b style="text-transform: uppercase;">- Forma de pagamento</b><br>
+                    <span style="color: #999999;">R: Somente PIX Copia e Cola ou CNPJ</span><br>
+                    <b style="text-transform: uppercase;">- Se eu escolher o veículo</b><br>
+                    <span style="color: #999999;">R: Vamos entregar na sua garagem o prêmio.</span>
+                </div>
+                <div class="modal-footer" style="background-color: #020f1e;">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modal-premios" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border: none;">
+                <div class="modal-header" style="background-color: #020f1e;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">Resultados</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color: #fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12 text-center">
+                        Estes são os prêmios disponíveis no sorteio
+                    </div>
+                    <hr>
+
+                    <div class="row mt-4" id="premios">
+                     <!-- Prêmios aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="blob green" id="messageIn"
+        style="position: fixed;
+        bottom: 30px;
+        z-index: 99999;
+        color: #fff;
+        padding: 3px;
+        font-weight: bold;
+        font-size: 12px;
+        width: 180px;
+        text-align: center;
+        z-index: 99999;
+        border-radius: 20px;
+        left: 10px;">
+    </div>
+
+    
+    <footer class="footer" style="text-align: center">
+        <a href="https://bit.ly/whatsaaprifas" target="_blank">Desenvolvido por OpenRifas
+        </a>
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<link rel="manifest" href="manifest.json">
+<script type="text/javascript" src="sw.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+<!-- Firebase Configuration -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyBvYdKJIQjkqToxJVVwbOo7WG7pN7PCacE",
+        authDomain: "antoniofilho-ef6a2.firebaseapp.com",
+        databaseURL: "https://antoniofilho-ef6a2-default-rtdb.firebaseio.com",
+        projectId: "antoniofilho-ef6a2",
+        storageBucket: "antoniofilho-ef6a2.appspot.com",
+        messagingSenderId: "637424531884",
+        appId: "1:637424531884:web:cad8ccb57a1edaa8516209",
+        measurementId: "G-F09W9QJCWM"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    // Initialize Firebase
+    const database = firebase.database();  
+
+    // Retrieve the data from the database
+    const cardRef = database.ref('cards');
+    cardRef.on('value', (snapshot) => {
+        const cards = snapshot.val();
+        const cardContainer = document.getElementById('cardContainer');
+
+        // Clear the existing content
+        cardContainer.innerHTML = '';
+
+        // Loop through the cards and add them to the HTML
+        for (const key in cards) {
+            const card = cards[key];
+            const cardElement = document.createElement('div');
+
+            cardElement.innerHTML = `
+                <a href="${card.link+'?id='+key}">
+                    <div class="card-rifa light">
+                        <div class="img-rifa">
+                            <img src="${card.image}" alt="" srcset="">
+                        </div>
+                        <div class="title-rifa title-rifa-destaque light">
+                            <h1>${card.title}</h1>
+                            <p>${card.description}</p>
+                            <div style="width: 100%;">
+                                <span class="badge mt-2 bg-success blink">Adquira já!</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+            cardContainer.appendChild(cardElement);
+        }
+    });
+
+    function addCard(title, description, image, link) {
+        const cardRef = database.ref('cards');
+        const newCardRef = cardRef.push();
+        newCardRef.set({
+            title: title,
+            description: description,
+            image: image,
+            link: link
+        });
+    }
+
+    function addRandomParticipants(name) {
+        const cardRef = database.ref('participants');
+        const newCardRef = cardRef.push();
+        newCardRef.set({
+            name: name
+        });
+    }
+
+    function search(event){
+        console.log('search');  
+        
+        event.preventDefault();
+        const telephone3 = document.getElementById('telephone').value;
+        window.location.href = `../minhas-reservas/index.html?telephone=${telephone3}`;    
+    }
+
+
+</script>
+
+<html lang="pt-br">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="csrf-token" content="">
+        <meta http-equiv="Content-Language" content="pt-br">
+        <meta name="robots" content="noindex">
+        <meta name="googlebot" content="noindex">
+        <meta name="color-scheme" content="light only">
+        <meta name="X-DarkMode-Default" value="false"/>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="css/rifapress.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+       
+        <!-- Fotorama from CDNJS, 19 KB -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+        <title>OpenRifas</title>
+
+        <link rel="stylesheet" href="css/menu2.css">
+    </head>
+
+<body>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <div id="loadingSystem" class="d-none"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top px-0 py-3" style="background-color:#000;">
+        <div class="container header-menu" style="justify-content: space-evenly; align-items: center;">
+            <div class="col-md-6 col-12 d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="" href="index.html" style="color: #ffffff!important; font-family: 'Roboto Condensed', sans-serif;"></a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+  
+    <a href="https://chat.whatsapp.com" class="botao-flutuante botao-flutuante-whats" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="https://instagram.com/" class="botao-flutuante botao-flutuante-insta" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <div class="container app-main" id="app-main">
+        <div class="row justify-content-center">
+            <div class="col-md-6 rifas light">
+                <div class="app-title light">
+                    <h1>⚡ Prêmios</h1>
+                    <div class="app-title-desc light">Escolha sua sorte</div>
+                </div>
+
+                <div id="cardContainer" class="row">
+                    <!-- Cards will be added here -->
+                </div>
+
+                <div class="modal-content" style="border: none;">
+                    <div class="modal-header">
+                        <h5 class="app-title light">CONSULTAR RESERVAS</h5>                      
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form onsubmit="search(event)" style="display: flex;">
+                                    <input type="hidden" name="_token" value="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+                                    <input type="text" name="telephone" id="telephone"
+                                        style="background-color: #fff;border: none;color: #000000;margin-right:5px;"
+                                        aria-describedby="passwordHelpBlock" maxlength="15" placeholder="Celular com DDD"
+                                        class="form-control" required>
+                                    <button type="submit" class="btn btn-danger">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="perguntas-frequentes pb-2">
+                    <div class="app-title light">
+                        <h1>Perguntas frequentes</h1>
+                    </div>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                    Acessando suas compras
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Clique em  <strong>Consultar Reservas</strong> e informe o seu número de telefone
+                                    utilizado na hora da compra. Você será redirecionado para uma página com todas as 
+                                    suas compras.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                    Como envio vejo os resultados ?
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    Clique <strong>no produto que você comprou </strong> e logo após navegue até a sessão "Resultados", na
+                                    parte inferior da página. Ao clicar você será redirecionado para a página com todos os resultados dos produtos".
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="footer" style="text-align: center">
+                        <a href="https://bit.ly/whatsaaprifas" target="_blank">Desenvolvido por OpenRifas
+                        </a>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br><br>
+
+
+    <footer class="footer" style="text-align: center">
+        <a href="https://bit.ly/whatsaaprifas" target="_blank">Desenvolvido por OpenRifas
+        </a>
+    </footer>
+
+
+    <script>
+        document.getElementById('telephone').addEventListener('input', function (e) {
+            var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+        });
+
+        
+        function loading() {
+            var el = document.getElementById('loadingSystem');
+            el.classList.toggle("d-none");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="color-scheme" content="light only">
+    <meta name="X-DarkMode-Default" value="false">
+    <title>OpenRifas</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="css/rifapress.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #000 !important;
+            background-size: cover;
+            width: 100%;
+            background-position: bottom;
+            background-repeat: no-repeat;
+            padding-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <link rel="manifest" href="manifest.json">
+    <script src="sw.js" type="text/javascript"></script>
+    <div id="loadingSystem" class="d-none"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top px-0 py-3" style="background-color: #000;">
+        <div class="container header-menu" style="justify-content: space-evenly; align-items: center;">
+            <div class="col-md-6 col-12 d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="" href="index.html" style="color: #ffffff!important; font-family: 'Roboto Condensed', sans-serif;">
+                        <img src="products/1706238799.png" alt="" width="100" height="50">
+                    </a>
+                </div>
+
+                <div>
+                    <a href="ganhadores#" data-bs-toggle="modal" data-bs-target="#consultar-reservas" style="text-decoration: none; font-size: 12px; color: #fff">
+                        <i class="bi bi-cart-check" style="margin-top: 10px; font-size: 35px; color: rgb(180, 180, 180) !important; opacity: 1;"></i>
+                    </a>
+
+                    <button type="button" aria-label="Menu" class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#mobileMenu" style="margin-top: -15px;">
+                        <i class="bi bi-filter-right" style="font-size: 40px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <menu id="mobileMenu" class="modal fade modal-fluid" tabindex="-1" aria-labelledby="mobileMenuLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-cor-primaria">
+                <header class="app-header app-header-mobile--show">
+                    <div class="container container-600 h-100 d-flex align-items-center justify-content-between">
+                        <a href="index.html">
+                            <img src="products/1706238799.png" alt="" class="app-brand img-fluid">
+                        </a>
+                        <div class="app-header-mobile">
+                            <button type="button" class="btn btn-link text-white menu-mobile--button pe-0 font-lgg" data-bs-dismiss="modal" aria-label="Fechar">
+                                <i class="bi bi-x-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+                <div class="modal-body" style="background: #000 !important">
+                    <div class="container container-600">
+                        <nav class="nav-vertical nav-submenu font-xs mb-2">
+                            <ul>
+                                <li><a class="text-white" alt="Página Principal" href="index.html"><i class="icone bi bi-house"></i><span>Início</span></a></li>
+                                <li><a class="text-white" alt="Área de Afiliados" href="area-afiliado"><i class="icone fas fa-people-arrows"></i><span>Área de Afiliados</span></a></li>
+                                <li><a class="text-white" alt="Sorteios" href="sorteios"><i class="icone bi bi-card-list"></i><span>Sorteios</span></a></li>
+                                <li><a class="text-white" alt="Meus Números" data-bs-toggle="modal" data-bs-target="#consultar-reservas"><i class="icone bi bi-card-list"></i><span>Meus números</span></a></li>
+                                <li><a alt="Créditos" class="text-white" href="ganhadores"><i class="icone bi bi-lightning-charge"></i><span>Ganhadores</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="text-center">
+                            <a href="login" class="btn btn-primary w-100 rounded-pill">
+                                <i class="icone bi bi-box-arrow-in-right"></i>
+                                Entrar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </menu>
+
+    <div class="row d-flex mt-5">
+        <a class="rifapress_zap" href="https://chat.whatsapp.com" data-toggle="tooltip" data-placement="top" title="Whatsapp">
+            <i class="bi bi-whatsapp rifapress_bi_zap"></i>
+        </a>
+    </div>
+
+    <div class="modal fade" id="consultar-reservas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border: none;">
+                <div class="modal-header" style="background-color: #020f1e;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">CONSULTAR RESERVAS</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close" style="color: #fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color: #020f1e;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="https://starpremiacoes.com.br/minhas-reservas" method="POST" style="display: flex;">
+                                <input type="hidden" name="_token" value="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+                                <input type="text" name="telephone" id="telephone" style="background-color: #fff; border: none; color: #000000; margin-right: 5px;" aria-describedby="passwordHelpBlock" maxlength="15" placeholder="Celular com DDD" class="form-control" required>
+                                <button type="submit" class="btn btn-danger">Buscar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://chat.whatsapp.com" class="botao-flutuante botao-flutuante-whats" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="https://instagram.com/" class="botao-flutuante botao-flutuante-insta" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <div class="container rounded-top-5" id="" style="background-color:#e3e3e3;padding-bottom:75px;min-height: 100vh;">
+        <!-- Main Content -->
+    </div>
+
+    <footer class="footer" style="text-align: center">
+        <a href="https://bit.ly/whatsaaprifas" target="_blank">Desenvolvido por OpenRifas</a>
+    </footer>
+
+    <script>
+        document.getElementById('telephone').addEventListener('input', function (e) {
+            var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+        });
+
+        document.getElementById('telephone1').addEventListener('input', function (e) {
+            var aux = e.target.value.replace(/\D/g, '').match(/(\d{0,2})(\d{0,5})(\d{0,4})/);
+            e.target.value = !aux[2] ? aux[1] : '(' + aux[1] + ') ' + aux[2] + (aux[3] ? '-' + aux[3] : '');
+        });
+
+        function loading() {
+            var el = document.getElementById('loadingSystem');
+            el.classList.toggle("d-none");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/animejs@2.0.2/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+
+</html>

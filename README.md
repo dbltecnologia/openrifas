@@ -1,2 +1,2 @@
 # openRifas
-openRifas
+OpenRifas

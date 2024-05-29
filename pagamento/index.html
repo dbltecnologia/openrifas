@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="color-scheme" content="light only">
+    <meta name="X-DarkMode-Default" value="false"/>
+    <meta name="facebook-domain-verification" content=""/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/rifapress.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/menu2.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+</head>
+
+<body>
+    <div id="loadingSystem" class="d-none"></div>
+    <div class="container app-main" id="app-main">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-12 rifas light">
+                <section class="title-payment-container mt-2">
+                    <section class="title-payment-content">
+                        <section class="title-payment-icon">
+                            <i class="far fa-check-circle" id="payment-icon" style="color: #ffc107"></i>
+                        </section>
+                        <section class="title-payment-texts mt-3 ml-3">
+                            <h2 class="title-payment-text light" id="payment-text">Aguardando Pagamento!</h2>
+                            <p class="title-payment-sub light" id="payment-sub">Finalize o pagamento.</p>
+                        </section>
+                    </section>
+                </section>
+
+                <div class="progress_reserva text-center" id="progress-bar">
+                    <p class="desc"><b>Tempo restante para pagamento: </b></p>
+                    <span id="qrclock">
+                        <span id="qrminutes"></span> : <span id="qrseconds"></span>
+                    </span>
+                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="100"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div id="qrprogress" class="progress-bar progress-bar-striped progress-bar-animated"
+                            style="width: 100%"></div>
+                    </div>
+                </div>
+
+                <div id="divCart" class="card-rifa-destaque payment-card light">
+                    <label>
+                        <span class="badge bg-success">1</span>
+                        Copie o código PIX abaixo.
+                    </label>
+
+                    <div class="" style="display: flex;justify-content: center;" id="pixcontainer">
+                        <!-- Pix copia e cola aqui -->
+                    </div>
+
+                    <label class="mt-2">
+                        <span class="badge bg-success">2</span>
+                        Abra o app do seu banco e escolha a opção PIX, como se fosse fazer uma transferência.
+                    </label>
+
+                    <label class="mt-2">
+                        <span class="badge bg-success">3</span>
+                        Selecione a opção PIX copia e cola, cole a chave copiada e confirme o pagamento.
+                    </label>
+
+                    <div class="" style="margin-top: 20px;text-align: center;" id="pixqrcontainer">
+
+                    </div>
+
+                    <div class="text-center">
+                        <h5>QR Code</h5>
+
+                        <label>
+                            Acesse o APP do seu banco e escolha a opção pagar com QR Code, escaneie o código acima e
+                            confirme o pagamento.
+                        </label>
+                    </div>
+                </div>
+
+                <a href="https://rifasfacil.web.app/sorteio" id="productdescription">
+                    <!-- Produto data -->
+                </a>
+
+                <div class="card-rifa-destaque detalhes-compra light" id="detalhesProduto">
+
+                </div>
+
+            </div>
+        </div>
+        <br>
+        <footer class="footer " style="height:auto;background-color: #000;margin-top:0px!important; text-align: center;">
+            <a href="https://vtexdigital.com.br/" target="_blank" style="text-decoration: none"><span
+                    class="text-muted" style="color: #fff!important; font-size: 12px;">Desenvolvido por OpenRifas</span></a>
+        </footer>
+    </div>
+    <br><br>
+    
+    <script src="main.js"></script>
+
+</body>
+
+</html>

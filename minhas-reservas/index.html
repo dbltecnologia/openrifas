@@ -1,0 +1,169 @@
+
+<html lang="pt-br">
+    
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+    <meta http-equiv="Content-Language" content="pt-br">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <meta name="color-scheme" content="light only">
+    <meta name="X-DarkMode-Default" value="false"/>  
+    <meta name="facebook-domain-verification" content=""/>  
+    <link rel="manifest" href="/manifest.json">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script type="text/javascript" src="sw.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/rifapress.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../css/menu2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Mercado Pago -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+    <script src="main.js"></script>
+
+    <title>OpenRifas</title>        
+
+</head>
+
+<body>
+    <div id="loadingSystem" class="d-none"></div>
+
+    <nav class="navbar navbar-expand-lg fixed-top px-0 py-3" style="background-color:#000;">
+        <div class="container header-menu" style="justify-content: space-evenly; align-items: center;">
+            <div class="col-md-6 col-12 d-flex justify-content-between align-items-center">
+                <div>
+                    <a class="" href="index.html" style="color: #ffffff!important; font-family: 'Roboto Condensed', sans-serif;"></a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row d-flex mt-5"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 9999999;">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border: none;">
+            <div class="modal-header" style="background-color: #020f1e;">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">CONSULTAR RESERVAS</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+                    style="color: #fff;">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="background-color: #020f1e;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form action="https://starpremiacoes.com.br/consultar-reserva" method="POST" style="display: flex;">
+                            <input type="hidden" name="_token" value="rq8u2xSvlq8q7x4v8WK2uAz8pgwSMPzFMPLGApBm">
+                            <input type="text" id="telephone3" name="telephone"
+                                style="background-color: #fff;border: none;color: #000;margin-right:5px;"
+                                aria-describedby="passwordHelpBlock" maxlength="15" placeholder="Celular com DDD"
+                                class="form-control" required>
+                            <button type="submit" class="btn btn-danger">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal  consultar -->
+    <div class="modal fade" id="consultar-reservas" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" style="z-index: 9999999;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="border: none;">
+                <div class="modal-header" style="background-color: #020f1e;">
+                    <h5 class="modal-title" id="exampleModalLabel" style="color: #fff;">CONSULTAR RESERVAS</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"
+                        style="color: #fff;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="background-color: #020f1e;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="http://rifadossonhos.vtexdigital.com.br/minhas-reservas" method="POST" style="display: flex;">
+                                <input type="hidden" name="_token" value="2Y99EiATJVaIILseD9LQ8RBpTUZbukkDtUjOzAPA">
+                                <input type="text" name="telephone" id="telephone"
+                                    style="background-color: #fff;border: none;color: #000000;margin-right:5px;"
+                                    aria-describedby="passwordHelpBlock" maxlength="15" placeholder="Celular com DDD"
+                                    class="form-control" required>
+                                <button type="submit" class="btn btn-danger">Buscar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container app-main" id="app-main">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-12 rifas light">
+                <div class="app-title light">
+                    <h1>🛒 Compras</h1>
+                    <div class="app-title-desc light">recentes</div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col-md-12">
+                        <label style="color: #fff">Selecione a Rifa</label>
+                        <select name="" id="select-product" class="form-control" onchange="showHideReservas(this)">
+                            <option value="0">Mostrar Todas</option>                            
+                        </select>
+                    </div>
+                </div>
+                <div class="card app-card mb-2 pointer border-bottom-warning row-rifa rifa-52" id="container-reservas">
+                    <!-- Cards will be added here -->
+                </div>
+            </div>
+        </div>
+        <footer class="footer" style="height:auto;background-color: #000;margin-top:0px!important; text-align: center;">
+            <a href="https://vtexdigital.com.br/" target="_blank" style="text-decoration: none">
+                <span class="text-muted" style="color: #fff!important; font-size: 12px;">Desenvolvido por OpenRifas</span>
+            </a>
+        </footer>
+    </div>
+
+    <br><br>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copiar() {
+            var copyText = document.getElementById("brcodepix");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copiado com sucesso: " + copyText.value);
+        }
+    </script>
+</body>
+
+
+</html>
