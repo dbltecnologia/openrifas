@@ -66,6 +66,12 @@ function startInterface(){
         for (const key in sales) {
         
             const item = sales[key];
+
+            if (item.type === 0) {
+                continue;
+                
+            } 
+
             item.orderNumber = Math.floor(Math.random() * 1000);
             item.status = item.status ? 'Confirmado' : 'Aguardando pagamento';
             item.cotas = item.cotas ? item.cotas : 'Aguardando pagamento';

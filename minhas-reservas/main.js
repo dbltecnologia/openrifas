@@ -58,6 +58,11 @@ function startInterface(){
         snapshot.forEach(function(childSnapshot) {
             const childData = childSnapshot.val();
 
+            if(childData.type === 0){
+                return                
+            }
+            
+
             if (childData.telephone.replace(/\D/g, '') === idFromUrl.replace(/\D/g, '')) {
 
                 if(childData.cotas){
@@ -82,10 +87,11 @@ function startInterface(){
                                 <div class="col ps-2">
                                     <small class="compra-data font-xss opacity-50">${childData.orderDateTime}</small>
                                     <div class="compra-title font-weight-500">${childData.productName}</div>
-                                    <small class="font-xss opacity-75 text-uppercase">Compra Aprovada (${total})</small>
+                                    <small class="font-xss opacity-75 text-uppercase">Compra Aprovada (${childData.status})</small>
+                                    <small class="font-xss opacity-75 text-uppercase">Status (${total})</small>
                                     <div class="compra-cotas font-xs" style="max-height: 200px;overflow: auto;">
                                         ${childData.cotas.map(cota => `<span class="badge bg-success me-1">${cota}</span>`).join('')}
-                                    </div>
+                                    </div
                                 </div>
                             </div>
                         </div>
