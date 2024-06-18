@@ -78,7 +78,6 @@ cardRef.orderByKey().equalTo(idFromUrl).on('value', (snapshot) => {
         productData = card
 
 
-
         if (card.type === 0) {
             console.log('Tipo 0', key)
             continue;
@@ -320,12 +319,13 @@ function addQtd(e, valor = null) {
 
     console.log('Adicionando')
     console.log('Quantidade', e)    
-    console.log('Valor', valor)       
     
     if (valor != null) {
         
         qtdNumbers = e;
         valorFinal = valor;
+
+        $("#numbersA").val(valorFinal);
 
         openModalCheckout();
 
@@ -333,14 +333,20 @@ function addQtd(e, valor = null) {
     } else {
         if (e === '+') {
             input.value = parseInt(input.value) + 1;
+            console.log('## addQtd Quantidade 1 ', qtdNumbers)
         } else if (e === '-') {
             if (input.value <= qtdManimaNum) {
                 $("#numbersA").val(qtdManimaNum);
+                console.log('## addQtd Quantidade 2', qtdNumbers)
                 return;
             }
             input.value = parseInt(input.value) - 1;
+            console.log('## addQtd Quantidade 3', qtdNumbers)
         } else {
+
+
             input.value = parseInt(input.value) + parseInt(e);
+            console.log('## addQtd Quantidade', qtdNumbers)
         }
 
         if (input.value >= qtdMaximoNum) {
@@ -515,8 +521,8 @@ function finish(event){
 
     const sorteioDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, currentDate.getDate()).toLocaleDateString('pt-BR', options);
     
-    const valor = valorFinal * qtdNumbers
-
+    const input = document.getElementById('numbersA');
+    const valorInput = input.value 
 
     allItems['type'] = 0;
     allItems['productKey'] = idFromUrl;
@@ -532,7 +538,7 @@ function finish(event){
     allItems['productDescription'] = productData.description;
     allItems['quantity'] = qtdNumbers;
     allItems['qtdNCota'] = productData.qtdNCota;
-    allItems['totalAmount'] = valor;
+    allItems['totalAmount'] = valorInput;
     allItems['totalNumbers'] = productData.totalNumbers ? productData.totalNumbers : 1000;
     allItems['datetime'] = new Date().toISOString();
     allItems['qrcopiacola'] = "00020126580014br.gov.bcb.pix013693c1114f-8a83-4589-a81f-348c8be099b0520400005303986540510.005802BR5917BHBRUNOHENRIQUE986011so sebastio62240520mpqrinter725593379576304860B";

@@ -347,10 +347,8 @@ function createQuotas() {
         cotasRef.child(productData.productKey).set(finalCotas);
         salesRef.child(idFromUrl).child('cotas').set(productData.cotas.flat().join(', '));
 
-        Swal.fire({
-            title: 'Sucesso',
-            text: 'Cotas geradas com sucesso!'
-        });
+
+        alert('Cotas geradas com sucesso!')
 
         setTimeout(() => {
 
@@ -390,10 +388,7 @@ function sendPayment() {
 
     salesRef.child(idFromUrl).child('payments').set(data);
 
-    Swal.fire({
-        title: 'Processando pagamento',
-        text: 'Favor realizar o pagamento'
-    });
+    alert('Pagamento enviado com sucesso!');
             
 };
 

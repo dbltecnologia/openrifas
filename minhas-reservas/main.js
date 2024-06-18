@@ -59,6 +59,7 @@ function startInterface(){
             const childData = childSnapshot.val();
 
             if(childData.type === 0){
+                console.log('type 0')
                 return                
             }
             
